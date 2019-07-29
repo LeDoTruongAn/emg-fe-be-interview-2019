@@ -1,0 +1,17 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span class="bg-header"></span>
+    <span class="example-spacer"></span>
+    <button class="icon-user" mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>account_circle</mat-icon>
+      <span>{{userName}}</span>
+    </button>
+    <mat-menu class="menu-user" #menu="matMenu">
+      <button class="btn-logout" mat-menu-item (click)="onLogout()">
+        <mat-icon>exit_to_app</mat-icon>
+        <span>Log Out</span>
+      </button>
+    </mat-menu>
+  </mat-toolbar-row>
+
+</mat-toolbar>

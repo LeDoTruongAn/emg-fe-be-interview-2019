@@ -1,0 +1,27 @@
+:host{
+    padding: 0;
+    font-size: 13px;
+}
+
+.user-container{
+    width: 100%;
+    margin-top: 50px;
+
+    .user-table{
+        margin-top: 1rem;
+        width: 80%;
+        margin: auto;
+
+        table{
+            width: 100%;
+        }
+
+        .btn-add{
+            float: right;
+        }
+    }
+
+}
+button{
+    margin: 5px;
+}
