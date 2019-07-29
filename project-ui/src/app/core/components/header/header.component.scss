@@ -1,0 +1,18 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.icon-user {
+  margin-right: 50px;
+  .btn-logout {
+    width: 100px !important;
+    margin: 0px !important;
+  }
+}
+
+.bg-header{
+  background-image: url('../../../../assets/icon/EMG_Logo_small-2.png');
+  background-repeat: round;
+  width: 150px;
+  height: 100%; 
+}

@@ -1,0 +1,35 @@
+<div>{{data.pageName}}</div>
+<form class="d-flex flex-column justify-content-center " [formGroup]="registerForm" (ngSubmit)="onSubmitForm()">
+  <mat-form-field class="width-control">
+    <input matInput [readonly]="data.pageName === 'Edit User'" type="text" placeholder="User name" formControlName="userName">
+  </mat-form-field>
+  <mat-form-field class="width-control">
+    <input matInput type="text" placeholder="First name" formControlName="firstName">
+  </mat-form-field>
+  <mat-form-field class="width-control">
+    <input matInput type="text" placeholder="Last name" formControlName="lastName">
+  </mat-form-field>
+  <mat-form-field class="width-control">
+    <input matInput type="password" placeholder="Password" formControlName="password">
+  </mat-form-field>
+  <mat-form-field class="width-control">
+    <input matInput type="password" placeholder="Confirm password" formControlName="passwordConfirm"
+      [errorStateMatcher]="matcher">
+    <mat-error *ngIf="registerForm.hasError('notSamePass')">
+      Passwords do not match
+    </mat-error>
+  </mat-form-field>
+  <mat-error *ngIf="errorRegistor.length !=0">
+    {{errorRegistor}}
+  </mat-error>
+  <div class="d-flex justify-content-center my-3 action">
+    <button *ngIf="data.pageName !== 'Edit User'" type="submit" class="btn-submit" mat-raised-button
+      [disabled]="!registerForm.touched || registerForm.invalid"
+      color="primary">{{data.pageName === 'Add New User'? 'Add New' : 'Register'}}</button>
+    <button *ngIf="data.pageName === 'Edit User'" type="submit" class="btn-submit" mat-raised-button
+      [disabled]="!registerForm.touched || registerForm.invalid"
+      color="primary">Edit</button>
+    <button type="button" class="btn-submit" mat-raised-button (click)="onNoClick()">Cancel</button>
+
+  </div>
+</form>
