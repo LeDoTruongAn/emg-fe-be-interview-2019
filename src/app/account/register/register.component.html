@@ -1,0 +1,89 @@
+<div class="container">
+  <div class="text-center">
+    <img src="/assets/images/EMG_Logo_small-2.png" alt="" />
+  </div>
+
+  <div class="row register-area">
+    <div class="col-md-4">
+      <img class="animated-gif" src="/assets/images/register.gif" />
+    </div>
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card text-white bg-warning mb-3">
+          <div class="card-header">
+            {{ pageTitle }}
+          </div>
+        </div>
+
+        <div class="card-body">
+          <form [formGroup]="registerForm" novalidate (ngSubmit)="register()" autocomplete="off">
+            <fieldset>
+              <div class="form-group row">
+                <label class="col-md-2 col-form-label" for="userNameId">User Name</label>
+                <div class="col-md-8">
+                  <input class="form-control" id="userNameId" type="text" placeholder="Username" required formControlName="txtUsername" />
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-md-2 col-form--label" for="passwordId">Password</label>
+
+                <div class="col-md-8">
+                  <input
+                    class="form-control"
+                    id="passwordId"
+                    type="password"
+                    placeholder="Password"
+                    required
+                    formControlName="txtPassword"
+                  />
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-md-2 col-form--label" for="passwordId">Confirm Password</label>
+
+                <div class="col-md-8">
+                  <input
+                    class="form-control"
+                    id="passwordId"
+                    type="password"
+                    placeholder="Confirm Password"
+                    required
+                    formControlName="txtConfirmPassword"
+                  />
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-5 offset-md-2">
+                  <button
+                    class="btn btn-warning text-white"
+                    type="submit"
+                    style="width:100px;margin-right:10px"
+                    [disabled]="!registerForm.valid"
+                  >
+                    Register
+                  </button>
+                  <button class="btn btn-outline-secondary" type="button" (click)="reset()" style="width:80px">
+                    Reset
+                  </button>
+                </div>
+              </div>
+            </fieldset>
+          </form>
+        </div>
+
+        <div class="alert alert-danger" *ngIf="errorMessage">{{ errorMessage }}</div>
+        <div class="alert alert-success" *ngIf="successMessage">{{ successMessage }}</div>
+
+        <div class="card-footer  bg-transparent border-warning">
+          Already have an account?
+          <button class="btn btn-emg text-white" routerLink="/login" style="margin-right:10px">
+            Login
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
