@@ -1,0 +1,83 @@
+<div class="container">
+  <div class="text-center">
+    <img src="/assets/images/EMG_Logo_small-2.png" alt="" />
+  </div>
+
+  <div class="row login-area">
+    <div class="col-md-4">
+      <img class="animated-gif" src="/assets/images/unlock_animaiton.gif" />
+    </div>
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card text-white bg-warning mb-3">
+          <div class="card-header">
+            {{ pageTitle }}
+          </div>
+        </div>
+
+        <div class="card-body">
+          <form [formGroup]="loginForm" novalidate (ngSubmit)="login()" autocomplete="off">
+            <fieldset>
+              <div class="form-group row">
+                <label class="col-md-2 col-form-label" for="userNameId">User Name</label>
+                <div class="col-md-8">
+                  <input
+                    class="form-control"
+                    id="userNameId"
+                    type="text"
+                    placeholder="Username"
+                    required
+                    name="userName"
+                    formControlName="txtUsername"
+                    #usernamene
+                  />
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-md-2 col-form--label" for="passwordId">Password</label>
+
+                <div class="col-md-8">
+                  <input
+                    class="form-control"
+                    id="passwordId"
+                    type="password"
+                    placeholder="Password"
+                    required
+                    name="password"
+                    formControlName="txtPassword"
+                  />
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-5 offset-md-2">
+                  <button
+                    class="btn btn-warning text-white"
+                    type="submit"
+                    style="width:80px;margin-right:10px"
+                    [disabled]="!loginForm.valid"
+                  >
+                    Log In
+                  </button>
+                  <button class="btn btn-outline-secondary" type="button" (click)="reset()" style="width:80px">
+                    Reset
+                  </button>
+                </div>
+              </div>
+            </fieldset>
+          </form>
+        </div>
+
+        <div class="alert alert-danger" *ngIf="errorMessage">{{ errorMessage }}</div>
+
+        <div class="card-footer  bg-transparent border-warning">
+          Not a member?
+          <button class="btn btn-emg text-white" routerLink="/register" style="margin-right:10px">
+            Register
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
